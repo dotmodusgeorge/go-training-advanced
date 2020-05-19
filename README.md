@@ -72,8 +72,13 @@ Your application should be able to convert multiple files on a single run (batch
 
 Your binaries should run using the following commands:
 
-`csv-to-json --out-dir /path/to/output file1.csv file2.csv file3.csv`
-`json-to-csv --out-dir /path/to/output file1.json file2.json file3.json`
+```bash
+csv-to-json --out-dir /path/to/output file1.csv file2.csv file3.csv
+```
+
+```bash
+json-to-csv --out-dir /path/to/output file1.json file2.json file3.json
+```
 
 Your application should use GO routines for processing the files. This ensures that the batches
 are converted concurrently. There are various different ways to implement this, such as using *channels*, *worker groups*, etc. 
