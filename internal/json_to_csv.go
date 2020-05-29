@@ -33,11 +33,11 @@ func mapRows(content []map[string]string) [][]string {
 	}
 	sort.Strings(keys)
 
-	rows := make([][]string, len(content) + 1)
+	rows := make([][]string, 0)
 	rows = append(rows, keys)
 
 	for _, obj := range content {
-		row := make([]string, len(obj))
+		row := make([]string, 0)
 		for _, key := range keys {
 			row = append(row, obj[key])
 		}
@@ -49,7 +49,7 @@ func mapRows(content []map[string]string) [][]string {
 func writeCsv(content [][]string, filePath string, output string) {
 	filePathParts := strings.Split(filePath, "/")
 	fileName := strings.Split(filePathParts[(len(filePathParts) - 1):][0], ".")[0]
-	finalPath := fmt.Sprint(output, fileName, ".json")
+	finalPath := fmt.Sprint(output, fileName, ".csv")
 	f, err := os.OpenFile(finalPath, os.O_WRONLY|os.O_CREATE, 0644)
 	if (err != nil) {
 		panic(nil)

@@ -21,12 +21,9 @@ func main() {
 	fmt.Println(args)
 	
 	for _, arg := range args {
-		wg.Add(1)
-		go func() {
+		func() {
 			internal.HandleJSON(arg, *output)
-			wg.Done()
 		}()
 	}
-	wg.Wait()
 	fmt.Println("asdf")
 }
